@@ -268,9 +268,7 @@ if (isset($_SESSION['CONFIGUSER']['psystemconftemaweb'])) {
                                                     //FORZAR .htaccess CARPETA SERVIDOR MINECRAFT
                                                     $rutahta = $_SESSION['RUTALIMITE'] . "/.htaccess";
                                                     $file = fopen($rutahta, "w");
-                                                    fwrite($file, "deny from all" . PHP_EOL);
-                                                    fwrite($file, "php_flag engine off" . PHP_EOL);
-                                                    fwrite($file, "AllowOverride None" . PHP_EOL);
+                                                    fwrite($file, "Require all denied" . PHP_EOL);
                                                     fclose($file);
 
                                                     //PARSEAR RUTA QUITANDO LO ANTERIOR A LA CARPETA MINECRAFT

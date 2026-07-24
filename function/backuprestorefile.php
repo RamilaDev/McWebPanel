@@ -221,9 +221,7 @@ if ($_SESSION['VALIDADO'] == $_SESSION['KEYSECRETA']) {
                 //GUARDAR FICHERO .htaccess EN MINECRAFT
                 $diraccess = $dirminecraft . "/.htaccess";
                 $file = fopen($diraccess, "w");
-                fwrite($file, "deny from all" . PHP_EOL);
-                fwrite($file, "php_flag engine off" . PHP_EOL);
-                fwrite($file, "AllowOverride None" . PHP_EOL);
+                fwrite($file, "Require all denied" . PHP_EOL);
                 fclose($file);
 
                 //DESCOMPRIMIR TAR
@@ -232,10 +230,8 @@ if ($_SESSION['VALIDADO'] == $_SESSION['KEYSECRETA']) {
 
                 $elcomando1 = "tar -xzvf '" . $dirbackups . $archivo . "' -C " . $dirminecraft;
                 $elcomando2 = "rm " . $diraccess;
-                $elcomando3 = "echo 'deny from all' >> " . $diraccess;
-                $elcomando4 = "echo 'php_flag engine off' >> " . $diraccess;
-                $elcomando5 = "echo 'AllowOverride None' >> " . $diraccess;
-                $elcomando6 = "chmod 644 " . $diraccess;
+                $elcomando3 = "echo 'Require all denied' >> " . $diraccess;
+                $elcomando4 = "chmod 644 " . $diraccess;
                 $delsh = "rm " . $dirsh;
 
                 $file = fopen($dirsh, "w");
@@ -244,8 +240,6 @@ if ($_SESSION['VALIDADO'] == $_SESSION['KEYSECRETA']) {
                 fwrite($file, $elcomando2 . PHP_EOL);
                 fwrite($file, $elcomando3 . PHP_EOL);
                 fwrite($file, $elcomando4 . PHP_EOL);
-                fwrite($file, $elcomando5 . PHP_EOL);
-                fwrite($file, $elcomando6 . PHP_EOL);
                 fwrite($file, $delsh . PHP_EOL);
                 fclose($file);
 

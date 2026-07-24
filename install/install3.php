@@ -236,7 +236,7 @@ require_once "../template/errorreport.php";
         $rutaescribir .= "/.htaccess";
 
         $file = fopen($rutaescribir, "w");
-        fwrite($file, "deny from all" . PHP_EOL);
+        fwrite($file, "Require all denied" . PHP_EOL);
         fclose($file);
 
         //GUARDAR FICHERO .htaccess EN BACKUPS
@@ -244,7 +244,7 @@ require_once "../template/errorreport.php";
         $rutaescribir .= "/.htaccess";
 
         $file = fopen($rutaescribir, "w");
-        fwrite($file, "deny from all" . PHP_EOL);
+        fwrite($file, "Require all denied" . PHP_EOL);
         fclose($file);
 
         //GUARDAR FICHERO .htaccess EN TEMP
@@ -252,7 +252,7 @@ require_once "../template/errorreport.php";
         $rutaescribir .= "/.htaccess";
 
         $file = fopen($rutaescribir, "w");
-        fwrite($file, "deny from all" . PHP_EOL);
+        fwrite($file, "Require all denied" . PHP_EOL);
         fclose($file);
 
         //GUARDAR FICHERO .htaccess EN CRON
@@ -260,7 +260,7 @@ require_once "../template/errorreport.php";
         $rutaescribir .= "/.htaccess";
 
         $file = fopen($rutaescribir, "w");
-        fwrite($file, "deny from all" . PHP_EOL);
+        fwrite($file, "Require all denied" . PHP_EOL);
         fclose($file);
 
         //GUARDAR FICHERO .htaccess EN MINECRAFT
@@ -268,9 +268,7 @@ require_once "../template/errorreport.php";
         $rutaescribir .= "/.htaccess";
 
         $file = fopen($rutaescribir, "w");
-        fwrite($file, "deny from all" . PHP_EOL);
-        fwrite($file, "php_flag engine off" . PHP_EOL);
-        fwrite($file, "AllowOverride None" . PHP_EOL);
+        fwrite($file, "Require all denied" . PHP_EOL);
         fclose($file);
 
         //GUARDAR FICHERO CONFUSER.JSON

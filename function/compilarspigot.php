@@ -265,7 +265,7 @@ if ($_SESSION['VALIDADO'] == $_SESSION['KEYSECRETA']) {
               //FORZAR .htaccess
               $rutahta = $carpcompilar . "/.htaccess";
               $file = fopen($rutahta, "w");
-              fwrite($file, "deny from all" . PHP_EOL);
+              fwrite($file, "Require all denied" . PHP_EOL);
               fclose($file);
 
               //CREACION DEL SSH

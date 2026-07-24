@@ -1195,7 +1195,7 @@ if ($_SESSION['VALIDADO'] == $_SESSION['KEYSECRETA']) {
 
           //GUARDAR FICHERO .htaccess en config
           $file = fopen($rutaescribir, "w");
-          fwrite($file, "deny from all" . PHP_EOL);
+          fwrite($file, "Require all denied" . PHP_EOL);
           fclose($file);
 
           //CREAR RUTA FICHERO CONFOPCIONES.PHP
