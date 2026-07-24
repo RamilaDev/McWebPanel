@@ -143,7 +143,7 @@ require_once "../template/errorreport.php";
         $elmaxupload = test_input($_POST["maxupload"]);
         $elzonahoraria = test_input($_POST["zonahoraria"]);
         $eltemawebuser = test_input($_POST["temawebuser"]);
-        $elpostmax = $elmaxupload + 1;
+        $elpostmax = $elmaxupload + 10;
 
         //COMPROBAR NO ESTEN VACIOS
         if ($elusuario == "" || $elpassword == "" || $elrepassword == "" || $elnombreservidor == "" || $eldirectorio == "" || $elpuerto == "" || $laram == "" || $eltiposerver == "" || $elmaxupload == "" || $elzonahoraria == "" || $eltemawebuser == "") {
