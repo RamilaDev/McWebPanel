@@ -114,6 +114,12 @@ $(function () {
             elerror = 1;
         }
 
+        if (document.getElementById("elnomdirmine").value == "") {
+            eltexto = eltexto + "No has introducido ningún nombre de directorio del servidor minecraft";
+            eltexto = eltexto + "<br>";
+            elerror = 1;
+        }
+
         eltexto = eltexto + "</div>";
 
         if (elerror == 0) {

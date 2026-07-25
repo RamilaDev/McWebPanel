@@ -99,6 +99,7 @@ require_once "../template/errorreport.php";
         $elzonahoraria = "";
         $loserrores = 0;
         $lakey = "";
+        $t = time();
 
         //OBTENER RUTA DONDE TIENE QUE ESTAR LA CARPETA CONFIG
         $dirconfig = "";
@@ -135,8 +136,7 @@ require_once "../template/errorreport.php";
         $elpassword = test_input($_POST["elpass"]);
         $elrepassword = test_input($_POST["elrepass"]);
         $elnombreservidor = test_input($_POST["elnomserv"]);
-        $t = time();
-        $eldirectorio = "Minecraft" . $t;
+        $eldirectorio = test_input($_POST["elnomdirmine"]);
         $elpuerto = test_input($_POST["elport"]);
         $laram = test_input($_POST["elram"]);
         $eltiposerver = test_input($_POST["eltipserv"]);
@@ -147,12 +147,55 @@ require_once "../template/errorreport.php";
 
         //COMPROBAR NO ESTEN VACIOS
         if ($elusuario == "" || $elpassword == "" || $elrepassword == "" || $elnombreservidor == "" || $eldirectorio == "" || $elpuerto == "" || $laram == "" || $eltiposerver == "" || $elmaxupload == "" || $elzonahoraria == "" || $eltemawebuser == "") {
+            echo "Error, alguno de los campos esta vacio.";
             exit;
         }
 
         //COMPROBAR LONGITUD USUARIO
         if (strlen($elusuario) > 255) {
-            echo "El usuario no puede tener mas de 255 caracteres";
+            echo "El usuario no puede tener mas de 255 caracteres.";
+            exit;
+        }
+
+        //COMPROBAR LONGITUD NOMBRE SERVIDOR
+        if (strlen($elnombreservidor) > 50) {
+            echo "El usuario no puede tener mas de 50 caracteres.";
+            exit;
+        }
+
+        //COMPROBAR LONGITUD DIRECTORIO SERVER MINECRAFT
+        if (strlen($eldirectorio) > 25) {
+            echo "El nombre directorio del server minecraft, no puede tener mas de 25 caracteres.";
+            exit;
+        }
+
+        //  COMPROBAR TEXTO NOMBRE USUARIO
+        if (!preg_match('/^[\p{L}\p{N}]+$/u', $elusuario)) {
+            echo "El usuario solo puede tener letras y numeros.";
+            exit;
+        }
+
+        //COMPROBAR SI CONTRASEÑAS COINCIDEN
+        if ($elpassword != $elrepassword) {
+            echo "El contraseña no coincide";
+            exit;
+        }
+
+        //COMPROBAR REQUISITOS CONTRASEÑA
+        if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s])\S{16,128}$/', $elpassword)) {
+            echo ('La contraseña no cumple los requisitos.');
+            exit;
+        }
+
+        //COMPROBAR TEXTO NOMBRE SERVIDOR
+        if (!preg_match('/^[\p{L}\p{N}_ -()]+$/u', $elusuario)) {
+            echo "El nombre servidor solo puede tener letras y numeros y signos.";
+            exit;
+        }
+
+        //  COMPROBAR TEXTO DIRECTORIO SERVER MINECRAFT
+        if (!preg_match('/^[\p{L}\p{N}]+$/u', $eldirectorio)) {
+            echo "El nombre directorio del server minecraft, solo puede tener letras y numeros";
             exit;
         }
 
@@ -169,12 +212,6 @@ require_once "../template/errorreport.php";
         clearstatcache();
         if (!is_writable($rutaraiz)) {
             echo "La carpeta raiz no tiene permisos de escritura";
-            exit;
-        }
-
-        //COMPROBAR SI EL PASSWORD COINCIDE
-        if ($elpassword != $elrepassword) {
-            echo "El password no coincide";
             exit;
         }
 

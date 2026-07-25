@@ -84,6 +84,10 @@ require_once "../template/errorreport.php";
         exit();
       }
     }
+
+    $t = time();
+    $eldirectorio = "Minecraft" . $t;
+
   ?>
     <div class="pt-5">
       <div class="container">
@@ -115,12 +119,12 @@ require_once "../template/errorreport.php";
 
                 <div class="form-group col-md-6">
                   <label for="elpass">Contraseña:</label>
-                  <input type="password" class="form-control" id="elpass" name="elpass" spellcheck="false" autocapitalize="off" placeholder="••••" required="required">
+                  <input type="password" class="form-control" id="elpass" name="elpass" spellcheck="false" maxlength="128" autocapitalize="off" placeholder="••••" required="required">
                 </div>
 
                 <div class="form-group col-md-6">
                   <label for="elrepass">Confirmar contraseña:</label>
-                  <input type="password" class="form-control" id="elrepass" name="elrepass" spellcheck="false" autocapitalize="off" placeholder="••••" required="required">
+                  <input type="password" class="form-control" id="elrepass" name="elrepass" spellcheck="false" maxlength="128" autocapitalize="off" placeholder="••••" required="required">
                 </div>
 
                 <div class="form-group col-md-12">
@@ -135,9 +139,11 @@ require_once "../template/errorreport.php";
                 <p class="lead" id="textoretorno"></p>
               </div>
 
+              <hr>
+
               <div class="form-group">
                 <label for="elnomserv">Nombre del servidor:</label>
-                <input type="text" class="form-control" id="elnomserv" name="elnomserv" required="required" placeholder="McWebPanel">
+                <input type="text" class="form-control" id="elnomserv" name="elnomserv" required="required" maxlength="50" placeholder="McWebPanel">
               </div>
 
               <div class="form-row">
@@ -207,6 +213,11 @@ require_once "../template/errorreport.php";
                 </div>
               </div>
 
+              <div class="form-group">
+                <label for="elnomdirmine">Nombre directorio servidor minecraft:</label>
+                <input type="text" class="form-control" id="elnomdirmine" name="elnomdirmine" required="required" maxlength="25" value="<?php echo $eldirectorio; ?>">
+              </div>
+
               <div class="form-row">
                 <div class="form-group col-md-12"><label for="temawebuser" class="">Tema web:</label>
                   <select id="temawebuser" name="temawebuser" class="form-control" required="required">
@@ -238,7 +249,7 @@ require_once "../template/errorreport.php";
                   </select>
                 </div>
               </div>
-
+<hr>
               <p class="lead" id="errorsubmit"></p>
               <button type="submit" id="binstalar" class="btn btn-primary btn-block">Finalizar instalación</button>
             </form>
