@@ -136,7 +136,7 @@ require_once "../template/errorreport.php";
         $elpassword = test_input($_POST["elpass"]);
         $elrepassword = test_input($_POST["elrepass"]);
         $elnombreservidor = test_input($_POST["elnomserv"]);
-        $eldirectorio = test_input($_POST["elnomdirmine"]);
+        $eldirectorio = "Minecraft" . $t;
         $elpuerto = test_input($_POST["elport"]);
         $laram = test_input($_POST["elram"]);
         $eltiposerver = test_input($_POST["eltipserv"]);

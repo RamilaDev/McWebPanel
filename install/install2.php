@@ -213,11 +213,6 @@ require_once "../template/errorreport.php";
                 </div>
               </div>
 
-              <div class="form-group">
-                <label for="elnomdirmine">Nombre directorio servidor minecraft:</label>
-                <input type="text" class="form-control" id="elnomdirmine" name="elnomdirmine" required="required" maxlength="25" value="<?php echo $eldirectorio; ?>">
-              </div>
-
               <div class="form-row">
                 <div class="form-group col-md-12"><label for="temawebuser" class="">Tema web:</label>
                   <select id="temawebuser" name="temawebuser" class="form-control" required="required">
